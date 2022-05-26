@@ -13,6 +13,8 @@ public class MySqlUserModel implements UserModel{
     public boolean save(User user) {
         Connection connection = ConnectionHelper.getConnection();
         try {
+            Class.forName("com.mysql.jdbc.Driver");
+
             PreparedStatement preparedStatement = connection.prepareStatement("insert into users(username, passwordHash, status) values (?,?,?)");
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getPasswordHash());
@@ -20,6 +22,8 @@ public class MySqlUserModel implements UserModel{
             preparedStatement.execute();
             return true;
         }catch (SQLException e){
+            e.printStackTrace();
+        }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return false;
