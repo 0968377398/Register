@@ -19,4 +19,13 @@
         <servlet-name>Register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Dashboard</servlet-name>
+        <jsp-file>/Admin/views/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dashboard</servlet-name>
+        <url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
 </web-app>
