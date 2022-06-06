@@ -1,55 +1,52 @@
 package com.example.t2009m1helloworld.Entity;
 
+import com.example.productasm.entity.base.BaseEntity;
+import com.example.productasm.entity.entityEnum.ProductStatus;
 import com.example.t2009m1helloworld.Entity.base.BaseEntity;
-import com.example.t2009m1helloworld.Entity.entityEnum.ProductStatus;
 
 import java.time.LocalDateTime;
 
-
 public class Product extends BaseEntity {
     private int id;
+    private int categoryId;
     private String name;
+    //    private String slug;
     private String description;
     private String detail;
-    private double price;
     private String thumbnail;
-    private String manufactureEmail;
-    private String manufacturePhone;
+    private double price;
 
     public Product() {
+
+    }
+    public Product(int id, int categoryId, String name, String description, String detail, String thumbnail, double price) {
+        this.id = id;
+        this.categoryId = categoryId;
+        this.name = name;
+        this.description = description;
+        this.detail = detail;
+        this.thumbnail = thumbnail;
+        this.price = price;
     }
 
-    public Product(int id, String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ProductStatus productStatus) {
+    public Product(int categoryId, String name, String description, String detail, String thumbnail, double price) {
+        this.categoryId = categoryId;
+        this.name = name;
+        this.description = description;
+        this.detail = detail;
+        this.thumbnail = thumbnail;
+        this.price = price;
+    }
+
+    public Product(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ProductStatus productStatus, int id, int categoryId, String name, String description, String detail, String thumbnail, double price) {
         super(createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, productStatus);
         this.id = id;
+        this.categoryId = categoryId;
         this.name = name;
         this.description = description;
         this.detail = detail;
-        this.price = price;
         this.thumbnail = thumbnail;
-        this.manufactureEmail = manufactureEmail;
-        this.manufacturePhone = manufacturePhone;
-    }
-
-    public Product(int id, String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.detail = detail;
         this.price = price;
-        this.thumbnail = thumbnail;
-        this.manufactureEmail = manufactureEmail;
-        this.manufacturePhone = manufacturePhone;
-    }
-
-    public Product(String name, String description, String detail, double price, String thumbnail, String manufactureEmail, String manufacturePhone) {
-        this.name = name;
-        this.description = description;
-        this.detail = detail;
-        this.price = price;
-        this.thumbnail = thumbnail;
-        this.manufactureEmail = manufactureEmail;
-        this.manufacturePhone = manufacturePhone;
     }
 
     public int getId() {
@@ -58,6 +55,14 @@ public class Product extends BaseEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -75,44 +80,22 @@ public class Product extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
-
     public String getDetail() {
         return detail;
     }
-
     public void setDetail(String detail) {
         this.detail = detail;
     }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
     public String getThumbnail() {
         return thumbnail;
     }
-
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
     }
-
-    public String getManufactureEmail() {
-        return manufactureEmail;
+    public double getPrice() {
+        return price;
     }
-
-    public void setManufactureEmail(String manufactureEmail) {
-        this.manufactureEmail = manufactureEmail;
-    }
-
-    public String getManufacturePhone() {
-        return manufacturePhone;
-    }
-
-    public void setManufacturePhone(String manufacturePhone) {
-        this.manufacturePhone = manufacturePhone;
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
