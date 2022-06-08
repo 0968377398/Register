@@ -28,4 +28,46 @@
         <servlet-name>Dashboard</servlet-name>
         <url-pattern>/Admin</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddCartServlet</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.AddCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCartServlet</servlet-name>
+        <url-pattern>/shopping-cart/add</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SubCartServlet</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.SubCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubCartServlet</servlet-name>
+        <url-pattern>/shopping-cart/sub</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GetCartServlet</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.GetCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetCartServlet</servlet-name>
+        <url-pattern>/shopping-cart/get</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RemoveCartServlet</servlet-name>
+        <servlet-class>com.example.t2009m1helloworld.controller.RemoveCartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveCartServlet</servlet-name>
+        <url-pattern>/shopping-cart/remove</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>com.example.t2009m1helloworld.filterdemo.AdminFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/admin/**</url-pattern>
+    </filter-mapping>
+
 </web-app>

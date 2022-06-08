@@ -11,12 +11,8 @@ public class CartItem {
     public String toString() {
         return String.format("%s - %.2f - %d", productName, unitPrice, quantity);
     }
-
     public CartItem() {
     }
-
-
-
     public int getProductId() {
         return productId;
     }

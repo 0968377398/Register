@@ -1,7 +1,9 @@
 package com.example.t2009m1helloworld.Entity.base;
 
+import com.example.t2009m1helloworld.Entity.Product;
 import com.example.t2009m1helloworld.Entity.entityEnum.ProductStatus;
 
+import java.nio.channels.FileLock;
 import java.time.LocalDateTime;
 
 public abstract class BaseEntity {
@@ -11,7 +13,6 @@ public abstract class BaseEntity {
     public int createdBy;
     public int updatedBy;
     public int deletedBy;
-    public ProductStatus status;
 
     public BaseEntity() {
         this.createdAt = LocalDateTime.now();
@@ -20,18 +21,16 @@ public abstract class BaseEntity {
         this.createdBy = 1;
         this.updatedBy = 1;
         this.deletedBy = 1;
-        this.status = ProductStatus.ACTIVE;
 
     }
 
-    public BaseEntity(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ProductStatus productStatus) {
+    public BaseEntity(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
         this.createdBy = createdBy;
         this.updatedBy = updatedBy;
         this.deletedBy = deletedBy;
-        this.status = productStatus;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -82,11 +81,9 @@ public abstract class BaseEntity {
         this.deletedBy = deletedBy;
     }
 
-    public ProductStatus getProductStatus() {
-        return status;
-    }
+    public abstract FileLock getProductValidation();
 
-    public void setProductStatus(ProductStatus productStatus) {
-        this.status = productStatus;
-    }
+    public abstract Product findById(int id);
+
+    public abstract void update(int id, Product product);
 }
